@@ -4,6 +4,11 @@ SETLOCAL EnableDelayedExpansion
 CALL "%VS120COMNTOOLS%\vsvars32.bat"
 
 set THIS=%CD%
+set THIS_INCLUDE=%THIS%\include
+set THIS_BIN=%THIS%\bin
+set THIS_LIB=%THIS%\lib
+
+
 set DOWNLOAD=%CD%\download
 set TOOLS=%CD%\tools
 set SRC=%CD%\src
@@ -22,6 +27,9 @@ IF %PROCESSOR_ARCHITECTURE%=="IA64" OR IF %PROCESSOR_ARCHITECTURE%=="AMD64" (
   )
 echo ---WGET found in %WGET%---
 
+IF NOT EXIST %THIS_BIN% mkdir %THIS_BIN%
+IF NOT EXIST %THIS_INCLUDE% mkdir %THIS_INCLUDE%
+IF NOT EXIST %THIS_LIB% mkdir %THIS_LIB%
 IF NOT EXIST %DOWNLOAD% mkdir %DOWNLOAD%
 IF NOT EXIST %SRC% mkdir %SRC%
 
@@ -71,8 +79,6 @@ FOR /F "tokens=*" %%G IN ('dir /B "*.tar"') DO (
 
 
 CALL :END
-
-
 
 :WGETFAIL
 SETLOCAL
