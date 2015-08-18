@@ -199,3 +199,4 @@ FakesAssemblies/
 *.tar.gz
 *.gz
 download
+tools/msvc
