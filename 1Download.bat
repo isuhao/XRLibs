@@ -43,8 +43,11 @@ IF DEFINED WGET_FAILMSG goto :FAIL
 echo ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
 echo บ Extracting...                                                 บ
 echo ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+cd %DOWNLOAD%
 
-
+FOR /F "tokens=1 eol=;" %%G IN (list.txt) DO (
+	%UNTAR% %%G
+)
 
 
 
