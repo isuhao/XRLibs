@@ -8,6 +8,7 @@ set DOWNLOAD=%CD%\download
 set TOOLS=%CD%\tools
 set SRC=%CD%\src
 set WGET=%TOOLS%\wget.exe
+set UNTAR=%TOOLS%\tar.exe -zxvf
 set SERVER_PATH=Public/xr-libs
 set SERVER_HOSTNAME=ftp://xordi.noip.me
 set WGET_FAILMSG=
@@ -39,6 +40,9 @@ FOR /F "tokens=1 eol=;" %%G IN (%DOWNLOAD%\list.txt) DO (
 )
 IF DEFINED WGET_FAILMSG goto :FAIL
 
+echo ษอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+echo บ Extracting...                                                 บ
+echo ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
 
 
 
