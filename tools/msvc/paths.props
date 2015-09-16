@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<_PropertySheetDisplayName>Path definitions</_PropertySheetDisplayName>
+	</PropertyGroup>
+
+    <PropertyGroup>
+		<!-- Base for XRLibs source code -->
+		<XRLibsBase Condition="'$(XRLibsBase)'==''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</XRLibsBase>
+		<XRLibsSourceBase Condition="'$(XRLibsSourceBase)'==''">$(XRLibsBase)src\</XRLibsSourceBase>
+		<XRLibsBinaryDir Condition="'$(XRLibsBinaryDir)'==''">$(XRLibsBase)bin\</XRLibsBinaryDir>
+		<XRLibsLibraryDir Condition="'$(XRLibsLibraryDir)'==''">$(XRLibsBase)lib\</XRLibsLibraryDir>
+		<XRLibsIncludeDir Condition="'$(XRLibsIncludeDir)'==''">$(XRLibsBase)include\</XRLibsIncludeDir>
+		<XRLibsObjectDir Condition="'$(XRLibsObjectDir)'==''">$(XRLibsSourceBase)obj\$(ProjectName)\$(Configuration)_$(Platform)\</XRLibsObjectDir>
+		<XRLibsPlatformSuffix Condition="'$(Configuration)'=='Debug'">_d</XRLibsPlatformSuffix>
+		<XRLibsPlatformSuffix Condition="'$(Configuration)'=='Debug-Lib'">_d</XRLibsPlatformSuffix>
+		<XRLibsPlatformSuffix Condition="'$(Configuration)'=='Debug-Dll'">_d</XRLibsPlatformSuffix>
+		<XRLibsPlatformSuffix Condition="'$(Configuration)'=='Release'"></XRLibsPlatformSuffix>
+		<XRLibsPlatformSuffix Condition="'$(Configuration)'=='Release-Lib'"></XRLibsPlatformSuffix>
+		<XRLibsPlatformSuffix Condition="'$(Configuration)'=='Release-Dll'"></XRLibsPlatformSuffix>
+		<XRLibsPlatformSuffix Condition="'$(XRLibsPlatformSuffix)'==''">(unk)</XRLibsPlatformSuffix>
+	</PropertyGroup>
+</Project>
