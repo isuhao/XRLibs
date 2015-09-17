@@ -14,7 +14,7 @@ set TOOLS=%CD%\tools
 set SRC=%CD%\src
 set WGET=%TOOLS%\wget.exe
 set UNTAR=%TOOLS%\7za.exe 
-set SED=%TOOLS\sed.exe
+set SED=%TOOLS%\sed.exe
 set SERVER_PATH=Public/xr-libs
 set SERVER_HOSTNAME=ftp://xordi-nas
 set WGET_FAILMSG=
@@ -58,16 +58,16 @@ echo ศอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
 cd %DOWNLOAD%
 
 FOR /F "tokens=1 eol=;" %%G IN (list.txt) DO (
-	%UNTAR% x %%G  -r
+	%UNTAR% x %%G  -r -y
 )
 
 FOR /F "tokens=*" %%G IN ('dir /B "*.tar"') DO (
-	%UNTAR% x %%G  -r -o%SRC%
+	%UNTAR% x %%G  -y -r -o%SRC%
 )
 
-echo sed -i "s/1\.2\.8/1\.2/" src\zlib-1.2.8\contrib\vstudio\vc11\zlibvc.def
-%SED% -i "s/1\.2\.8/1\.2/" src\zlib-1.2.8\contrib\vstudio\vc11\zlibvc.def
-
+echo %SED% -i "s/1\.2\.8/1\.2/" %THIS%\src\zlib-1.2.8\contrib\vstudio\vc11\zlibvc.def
+%SED% -i "s/1\.2\.8/1\.2/" %THIS%\src\zlib-1.2.8\contrib\vstudio\vc11\zlibvc.def
+xcopy %TOOLS%\msvc\* %SRC% /I /Y
 
 
 
