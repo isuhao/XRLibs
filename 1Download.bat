@@ -14,8 +14,9 @@ set TOOLS=%CD%\tools
 set SRC=%CD%\src
 set WGET=%TOOLS%\wget.exe
 set UNTAR=%TOOLS%\7za.exe 
+set SED=%TOOLS\sed.exe
 set SERVER_PATH=Public/xr-libs
-set SERVER_HOSTNAME=ftp://xordi.noip.me
+set SERVER_HOSTNAME=ftp://xordi-nas
 set WGET_FAILMSG=
 set LF=^
 
@@ -64,7 +65,8 @@ FOR /F "tokens=*" %%G IN ('dir /B "*.tar"') DO (
 	%UNTAR% x %%G  -r -o%SRC%
 )
 
-
+echo sed -i "s/1\.2\.8/1\.2/" src\zlib-1.2.8\contrib\vstudio\vc11\zlibvc.def
+%SED% -i "s/1\.2\.8/1\.2/" src\zlib-1.2.8\contrib\vstudio\vc11\zlibvc.def
 
 
 
